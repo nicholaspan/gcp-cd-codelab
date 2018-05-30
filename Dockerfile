@@ -1,10 +1,5 @@
-FROM golang
+FROM alpine
 
-ADD . /go/src/github.com/nicholaspan/gcp-cd-codelab
-
-RUN go install github.com/nicholaspan/gcp-cd-codelab
-
-ADD ./content /content
+COPY gopath/bin/gcp-cd-codelab /go/bin/gcp-cd-codelab
 
 ENTRYPOINT /go/bin/gcp-cd-codelab
-
