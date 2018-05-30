@@ -1,6 +1,10 @@
 FROM golang
 
-COPY  gopath/bin/gcp-cd-codelab /go/bin/gcp-cd-codelab
+ADD . /go/src/github.com/nicholaspan/gcp-cd-codelab
+
+RUN go install github.com/nicholaspan/gcp-cd-codelab
+
+ADD ./content /content
 
 ENTRYPOINT /go/bin/gcp-cd-codelab
 
